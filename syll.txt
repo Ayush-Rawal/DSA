@@ -1,0 +1,23 @@
+what is data structure and why we study this course?
+
+Basics revision  (pointer, function, structure, static and dynamic memory allocation, etc)
+
+What is algorithm?
+
+Design and analysis of algorithm.
+
+Stack
+
+Queue
+
+Linked List
+
+Sorting
+
+Searching
+
+Tree
+
+Graph
+
+Applications
