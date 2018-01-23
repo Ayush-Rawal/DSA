@@ -38,7 +38,7 @@ void q1()
 	int *p;
 	std::cout<<"How many numbers do you want to sort?"<<std::endl;
 	std::cin>>n;
-	p = (int*)calloc(n,sizeof(int));
+	p = (int*)(calloc(n,sizeof(int)));
 	std::cout<<"Enter numbers"<<std::endl;
 	enterArray(p,n);
 	sort_asc(p,n);

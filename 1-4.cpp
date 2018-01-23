@@ -3,8 +3,7 @@
 
 void reverse(int a[],size_t size)
 {
-    int temp,i;
-    for(i=0;i<size/2;i++){
+    for(int temp,i=0;i<size/2;i++){
         temp=a[i];
         a[i]=a[size-i-1];
         a[size-i-1]=temp;
@@ -13,7 +12,7 @@ void reverse(int a[],size_t size)
 
 void q1()
 {
-    size_t n=6;
+    const size_t n=6;
     int i;
     int arr[n];
     for(i=0;i<n;i++)
@@ -50,7 +49,7 @@ unsigned int findPos(int a[],size_t size,int elem)
 
 void q2()
 {
-    size_t n=6;
+    const size_t n=6;
     int i,min,pos;
     int arr[n];
     std::cout<<"Enter Array"<<std::endl;
@@ -74,7 +73,7 @@ void rotate(int a[],size_t size)
 
 void q3()
 {
-    size_t n=6;
+    const size_t n=6;
     int arr[n];
     std::cout<<"Enter Array"<<std::endl;
     for(int i=0;i<n;i++){
@@ -115,7 +114,7 @@ float computeSmallestDistance(point p[],size_t size)
 
 void q4()
 {
-    size_t n=3;
+    const size_t n=3;
     int i;
     point arr[n];
     std::cout<<"Enter points"<<std::endl;

@@ -123,5 +123,4 @@ int main(int argc,char* argv[])
 	int a[10];
 	q3();
 	return 0;
-	enterArray(a,10);
 }
