@@ -34,7 +34,7 @@ void reverse(char a[],size_t size)
 
 void q1()
 {
-	size_t n =10;
+	const size_t n =10;
 	char a[n];
 	std::cout<<"Enter array (of size "<<n<<" )"<<std::endl;
 	enterArray(a,n);
@@ -103,7 +103,7 @@ void sort_des(int a[],size_t size,unsigned int inc = 1)
 
 void q3()
 {
-	size_t n=10;
+	const size_t n=10;
 	int a[n];
 	std::cout<<"Enter array (of size "<<n<<" )"<<std::endl;
 	enterArray(a,n);
