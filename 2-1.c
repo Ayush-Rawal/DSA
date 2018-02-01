@@ -8,11 +8,11 @@ typedef struct LinkedList {
 
 node *head=NULL;
 
-int getNodePosByData(int data)
+int getNodePosByData(int content)
 {
 	node *temp=head;
-	for(register unsigned char i=0 ;temp->next != NULL; i++){
-		if(temp->data == data){
+	for(int i=0 ;temp != NULL; i++){
+		if(temp->data == content){
 			return i;
 		}
 		temp = temp->next;
@@ -44,6 +44,9 @@ node* getNodeByPos(unsigned int pos)
 node* createNode()
 {
 	node *temp = calloc(1,sizeof(node));
+	if(temp == NULL){
+		printf("Allocation failed");
+	}
 	return temp;
 }
 
@@ -103,7 +106,7 @@ void deleteAtBeginning()
 
 void deleteAtEnd()
 {
-	node *temp;
+	node *temp=head;
 	while(temp->next->next != NULL){
 		temp=temp->next;		
 	}
@@ -125,7 +128,12 @@ void deleteAtPos(unsigned int pos)
 
 void PrintList()
 {
+	if(head == NULL){
+		printf("The current list is empty\n");
+		return;
+	}
 	node *temp = head;
+	printf("The current list is:\n");
 	while(temp != NULL){
 		printf("%d\n",temp->data);
 		temp = temp->next;
@@ -135,13 +143,20 @@ void PrintList()
 
 void op1()
 {
+	if(head != NULL){
+		printf("A list already exists\n");
+		return;
+	}
 	unsigned int n;
-	printf("\nHow many nodes do you wish to enter?");
+	printf("\nHow many nodes do you wish to enter?\n");
 	scanf("%d",&n);
 	int *data = calloc(n,sizeof(int));
-	printf("\nEnter data for these nodes:");
+	if(data == NULL){
+		printf("Allocation failed");
+	}
+	printf("\nEnter data for these nodes:\n");
 	for(register unsigned char i = 0; i < n; i++){
-		scanf("%d",data[i]);
+		scanf("%d",&data[i]);
 	}
 	BulkInsertNodes(n,data);
 	printf("\nList initialized succesfully");
@@ -153,9 +168,11 @@ void op2()
 	char choice;
 	int data;
 	printf("\nEnter data:\n");
-	scanf("%d",data);
+	scanf("%d",&data);
+	fflush(stdin);
 	printf("\nWhere do you want to insert the node?");
-	printf("\na. At beginning\nb. At the end\nc. At an arbitrary position");
+	printf("\na. At beginning\nb. At the end\nc. At an arbitrary position\n");
+	fflush(stdin);
 	scanf("%c",&choice);
 	unsigned int pos;
 	switch(choice){
@@ -178,10 +195,16 @@ void op2()
 
 void op3()
 {
+	if(head == NULL){
+		printf("The list is empty\n");
+		return;
+	}
 	char choice;
 	printf("\nWhere is the node you want to delete??");
-	printf("\na. At beginning\nb. At the end\nc. At an arbitrary position");
+	printf("\na. At beginning\nb. At the end\nc. At an arbitrary position\n");
+	fflush(stdin);
 	scanf("%c",&choice);
+	fflush(stdin);
 	unsigned int pos;
 	switch(choice){
 		case 'a':
@@ -192,6 +215,7 @@ void op3()
 			break;
 		case 'c':
 			printf("\nEnter pos\n");
+			fflush(stdin);
 			scanf("%d",&pos);
 			deleteAtPos(pos);
 			break;
@@ -204,18 +228,22 @@ void op3()
 void op4()
 {
 	int data;
-	printf("Enter node contents");
+	printf("Enter node contents\n");
+	fflush(stdin);
 	scanf("%d",&data);	
 	int pos = getNodePosByData(data);
 	if(pos == -1){
 		printf("Not found(does not exist)");
+	}
+	else {
+		printf("Node found at pos %d",pos);
 	}
 	
 }
 
 int main(int argc, char* argv[])
 {
-	char again;
+	char again='y';
 	do{
 		unsigned char choice;
 		printf("Select operation:\n1. To initialize Node\n2. To insert a node\n3. To delete a node\n4. To search for data in the list\n5. To display the current list\n6. To exit\n");
@@ -246,9 +274,10 @@ int main(int argc, char* argv[])
 				break;
 	
 			default:
-				printf("\n Invalid choice.");
+				printf("\nInvalid choice.");
 		}
-		printf("\nFancy another operation?");
+		printf("\n\nFancy another operation?\n");
+		fflush(stdin);
 		scanf("%c",&again);
 	}while(again == 'y' || again == 'Y');
 
