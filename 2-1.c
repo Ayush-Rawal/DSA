@@ -141,7 +141,7 @@ void PrintList()
 	return;
 }
 
-void op1()
+void Initialize()
 {
 	if(head != NULL){
 		printf("A list already exists\n");
@@ -163,7 +163,7 @@ void op1()
 	return;
 }
 
-void op2()
+void HandleInsertNode()
 {
 	char choice;
 	int data;
@@ -193,7 +193,7 @@ void op2()
 	return;
 }
 
-void op3()
+void HandleDeleteNode()
 {
 	if(head == NULL){
 		printf("The list is empty\n");
@@ -225,7 +225,7 @@ void op3()
 	return;
 }
 
-void op4()
+void HandleSearch()
 {
 	int data;
 	printf("Enter node contents\n");
@@ -238,7 +238,6 @@ void op4()
 	else {
 		printf("Node found at pos %d",pos);
 	}
-	
 }
 
 int main(int argc, char* argv[])
@@ -250,19 +249,19 @@ int main(int argc, char* argv[])
 		scanf("%d",&choice);
 		switch(choice){
 			case 1:
-				op1();
+				Initialize();
 				break;
 	
 			case 2:
-				op2();
+				HandleInsertNode();
 				break;
 	
 			case 3:
-				op3();
+				HandleDeleteNode();
 				break;
 	
 			case 4:
-				op4();
+				HandleSearch();
 				break;
 	
 			case 5:
@@ -272,7 +271,7 @@ int main(int argc, char* argv[])
 			case 6:
 				exit(0);
 				break;
-	
+			
 			default:
 				printf("\nInvalid choice.");
 		}
