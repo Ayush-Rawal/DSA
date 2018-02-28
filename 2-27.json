@@ -1,0 +1,35 @@
+{
+    "Infix":[
+        {
+            "description":"Complete",
+            "problem":"",
+            "solution":{
+
+            }
+        },{
+            "description":"Partially",
+            "problem":"",
+            "solution":{
+                
+            }  
+        }
+    ],
+    "Prefix":[
+        {
+            "description":"Complete",
+            "problem":"",
+            "solution":{
+                
+            }
+        }
+    ],
+    "Postfix":[
+        {
+            "description":"Complete",
+            "problem":"",
+            "solution":{
+                
+            }
+        }
+    ]
+}
